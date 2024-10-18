@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: dev-spring-security
+  datasource:
+    url: jdbc:mysql://localhost:3307/dbsecurity
+    username: usrsecurity
+    password: lUNhxkydI9zN63WRd231
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+server:
+  servlet:
+    context-path: /api/security
+  port: 9898
