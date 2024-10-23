@@ -27,7 +27,7 @@ public class PermissionController {
 
     private final PermissionService permissionService;
 
-    @PreAuthorize("hasRole('ADMINISTRATOR')")
+    @PreAuthorize("hasAuthority('PRODUCT_CREATE_ONE')")
     @PostMapping
     public ResponseEntity<?> save(@RequestBody List<PermissionEntity> permissions) {
         Map<String, Object> response = new HashMap<>();
@@ -37,7 +37,7 @@ public class PermissionController {
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
-    @PreAuthorize("hasAnyRole('ADMINISTRATOR', 'CUSTOMER')")
+    @PreAuthorize("hasAuthority('PRODUCT_CREATE_ONE')")
     @GetMapping
     public ResponseEntity<?> findAll(Pageable pageable) {
         Map<String, Object> response = new HashMap<>();
@@ -47,7 +47,7 @@ public class PermissionController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    @PreAuthorize("hasAnyRole('ADMINISTRATOR', 'CUSTOMER')")
+    @PreAuthorize("hasAuthority('PRODUCT_CREATE_ONE')")
     @GetMapping(path = "{rol_id}")
     public ResponseEntity<?> findByRol_Id(@PathVariable Long rol_id) {
         Map<String, Object> response = new HashMap<>();

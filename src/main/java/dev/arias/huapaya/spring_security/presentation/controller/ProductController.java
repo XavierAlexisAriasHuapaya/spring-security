@@ -25,7 +25,7 @@ public class ProductController {
 
     private final ProductService productService;
 
-    @PreAuthorize("hasAuthority('PRODUCT_CREATE_ONE')")
+    @PreAuthorize("hasAuthority('PERMISSION_CREATE_ONE')")
     @PostMapping
     public ResponseEntity<?> save(@RequestBody ProductEntity product) {
         Map<String, Object> response = new HashMap<>();
@@ -35,7 +35,7 @@ public class ProductController {
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
-    @PreAuthorize("hasAnyRole('ADMINISTRATOR', 'CUSTOMER')")
+    @PreAuthorize("hasAuthority('PERMISSION_READ_ALL')")
     @GetMapping
     public ResponseEntity<?> findAll(Pageable pageable) {
         Map<String, Object> response = new HashMap<>();
