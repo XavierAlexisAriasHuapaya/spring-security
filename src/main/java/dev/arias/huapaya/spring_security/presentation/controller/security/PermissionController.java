@@ -29,11 +29,11 @@ public class PermissionController {
 
     @PreAuthorize("hasRole('ADMINISTRATOR')")
     @PostMapping
-    public ResponseEntity<?> save(@RequestBody PermissionEntity permission) {
+    public ResponseEntity<?> save(@RequestBody List<PermissionEntity> permissions) {
         Map<String, Object> response = new HashMap<>();
-        PermissionEntity permissionCreate = this.permissionService.save(permission);
+        List<PermissionEntity> permissionsCreate = this.permissionService.save(permissions);
         response.put("message", "Successful creation");
-        response.put("permission", permissionCreate);
+        response.put("permission", permissionsCreate);
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 

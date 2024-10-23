@@ -9,7 +9,7 @@ import dev.arias.huapaya.spring_security.persistence.entity.PermissionEntity;
 
 public interface PermissionService {
 
-    public PermissionEntity save(PermissionEntity entity);
+    public List<PermissionEntity> save(List<PermissionEntity> permissions);
 
     public Page<PermissionEntity> findAll(Pageable pageable);
 
